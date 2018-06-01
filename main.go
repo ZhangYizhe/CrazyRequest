@@ -33,7 +33,7 @@ func requset(w *sync.WaitGroup,a int)  {
 
 	startTime := time.Now().Unix()
 	
-	resp, err := http.Get("https://testyizhe.tutuapp.com/ios/member")
+	resp, err := http.Get("https://testyizhe.tutuapp.vip/ios/member")
 	if err != nil {
 		// handle error
 		checkErr(err)
