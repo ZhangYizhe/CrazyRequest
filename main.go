@@ -12,7 +12,7 @@ import (
 func main()  {
 
 	wg := sync.WaitGroup{}
-	for a := 0; a < 1; a++ {
+	for a := 0; a < 10000; a++ {
 		wg.Add(1)
 		go requset(&wg,a)
 	}
