@@ -6,6 +6,7 @@ import (
 	"fmt"
 	"io/ioutil"
 	"bytes"
+	"time"
 )
 
 
@@ -29,6 +30,8 @@ func checkErr(err error) {
 }
 
 func requset(w *sync.WaitGroup,a int)  {
+
+	startTime := time.Now().Unix()
 	
 	resp, err := http.Get("https://testyizhe.tutuapp.com/ios/member")
 	if err != nil {
@@ -45,7 +48,9 @@ func requset(w *sync.WaitGroup,a int)  {
 
 	test:=bytes.Count(body,nil)-1
 
-	fmt.Println("============= "+fmt.Sprintf("%d", a)  +" =============="+fmt.Sprintf("%d", test) )
+	overTime := time.Now().Unix()
+
+	fmt.Println("============= "+fmt.Sprintf("%d", a)  +" =============="+fmt.Sprintf("%d", test) + "======" + fmt.Sprintf("%d", overTime - startTime))
 
 	w.Done()
 }
